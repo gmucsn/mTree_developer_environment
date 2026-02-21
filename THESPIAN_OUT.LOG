@@ -1,0 +1,14 @@
+2026-02-21 19:05:05.649531 p6695 ERR  Declaring transmit of TransportIntent(ActorAddr-(T|:38143)-pending-ExpiresIn_0:04:59.963410-<class 'mTree.microeconomic_system.log_message.LogMessage'>-<LogMessage Timestamp: 1771700705.6079125, Type: log, Content: addresses={'VCM_environment.VCMEnvironment': ComponentAddress(short_name='VCM_environme...-quit_0:04:59.963397) as Poison: Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/systemCommon.py", line 173, in _send_intent_to_transport
+    self.transport.scheduleTransmit(self._addrManager, intent)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/transport/asyncTransportBase.py", line 213, in scheduleTransmit
+    transmitIntent.serMsg = self.serializer(transmitIntent)
+                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/transport/TCPTransport.py", line 568, in serializer
+    return toSendBuffer((self.myAddress, intent.message), serializer.dumps)
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/transport/streamBuffer.py", line 15, in <lambda>
+    toSendBuffer = lambda A, ser=pickle.dumps: (lambda AP: ('%d>'%len(AP)).encode('utf-8') + AP)(ser(A))
+                                                                                                 ~~~^^^
+TypeError: cannot pickle '_thread.lock' object
+

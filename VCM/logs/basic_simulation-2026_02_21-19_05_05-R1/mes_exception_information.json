@@ -1,0 +1,9 @@
+{
+    "error_message": "MES CRASHING IN PREPARATION - EXCEPTION FOLLOWS \n\tError Type: <class 'AttributeError'>\n\tError: 'VCMEnvironment' object has no attribute 'num_agents'\n\n\tTrace Output: \n\t  File \"/tmp/mTree/mTree/microeconomic_system/environment.py\", line 92, in invoke_prepare\n    self.prepare()\n    ~~~~~~~~~~~~^^\n\n\t  File \"VCM_environment.py\", line 33, in prepare\n\n",
+    "error_type": "<class 'AttributeError'>",
+    "error": "'VCMEnvironment' object has no attribute 'num_agents'",
+    "filename": "/tmp/mTree/mTree/microeconomic_system/environment.py",
+    "lineno": 92,
+    "name": "invoke_prepare",
+    "line": "self.prepare()"
+}

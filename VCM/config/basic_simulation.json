@@ -1,0 +1,28 @@
+{"mtree_type": "mes_simulation_description",
+   "name":"Basic Simulation Run",
+   "id": "1",
+   "environment": {
+    "name": "VCM_environment.VCMEnvironment",
+    "mes_class": "VCM_environment.VCMEnvironment",
+    "properties": {}
+  },
+   "institutions": [
+    {
+      "institution_name": "VCM_institution.VCMInstitution",
+      "class_name": "VCM_institution.VCMInstitution",
+      "properties": {}
+    }
+  ],
+   "number_of_runs": 1,
+   "agents": [{"agent_name": "VCM_agent.VCMAgent", "number": 5}],
+   "properties": {
+        
+        "group_rate": 5.0,
+        "num_participants":18,
+        "num_cooperators": 4,
+        "num_defectors": 8,
+        "num_conditional_cooperators":6,
+        "start_cc": 50,
+        "total_rounds": 20
+    }
+}
