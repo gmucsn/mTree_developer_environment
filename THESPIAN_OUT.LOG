@@ -12,3 +12,193 @@
                                                                                                  ~~~^^^
 TypeError: cannot pickle '_thread.lock' object
 
+2026-02-26 20:56:57.035339 p1616 Warn Actor VCM_environment.VCMEnvironment @ ActorAddr-(T|:37315) retryable exception on message addresses={'VCM_environment.VCMEnvironment': ComponentAddress(short_name='VCM_environment.VCMEnvironment', address_type='environment', address=<thespian.actors.ActorAddress object at 0x7da31ffc3170>, component_class='VCM_environment.VCMEnvironment', component_number=1), 'VCM_institution.VCMInstitution': ComponentAddress(short_name='VCM_institution.VCMInstitution', address_type='institution', address=<thespian.actors.ActorAddress object at 0x7da31ffc30b0>, component_class='VCM_institution.VCMInstitution', component_number=1), 'VCM_agent.VCMAgent 1': ComponentAddress(short_name='VCM_agent.VCMAgent 1', address_type='agent', address=<thespian.actors.ActorAddress object at 0x7da31ffc3110>, component_class='VCM_agent.VCMAgent 1', component_number=1), 'VCM_agent.VCMAgent 2': ComponentAddress(short_name='VCM_agent.VCMAgent 2', address_type='agent', address=<thespian.actors.ActorAddress object at 0x7da31ffc31d0>, component_class='VCM_agent.VCMAgent 2', component_number=1), 'VCM_agent.VCMAgent 3': ComponentAddress(short_name='VCM_agent.VCMAgent 3', address_type='agent', address=<thespian.actors.ActorAddress object at 0x7da31ffc3350>, component_class='VCM_agent.VCMAgent 3', component_number=1), 'VCM_agent.VCMAgent 4': ComponentAddress(short_name='VCM_agent.VCMAgent 4', address_type='agent', address=<thespian.actors.ActorAddress object at 0x7da31ffc32f0>, component_class='VCM_agent.VCMAgent 4', component_number=1), 'VCM_agent.VCMAgent 5': ComponentAddress(short_name='VCM_agent.VCMAgent 5', address_type='agent', address=<thespian.actors.ActorAddress object at 0x7da31ffc3290>, component_class='VCM_agent.VCMAgent 5', component_number=1)} addresses_to_groups={} address_groups={} component=<Agent: VCMEnvironment @ ActorAddr-(T|:37315)>: Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/actorManager.py", line 164, in _handleOneMessage
+    actor_result = self.actorInst.receiveMessage(msg, envelope.sender)
+  File "/opt/conda/lib/python3.13/site-packages/thespian/initmsgs.py", line 97, in require_init
+    getattr(self, initdone)()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/tmp/mTree/mTree/microeconomic_system/environment.py", line 63, in invoke_prepare
+    self.num_agents = self.address_book.num_agents()
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/tmp/mTree/mTree/microeconomic_system/address_book.py", line 138, in num_agents
+    return len(self.agents.keys())
+               ^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'AddressBook' object has no attribute 'agents'
+
+2026-02-26 20:56:57.052734 p1616 ERR  Declaring transmit of TransportIntent(ActorAddr-(T|:46099)-pending-ExpiresIn_0:04:59.999176-<class 'thespian.actors.PoisonMessage'>-Poison<addresses={'VCM_environment.VCMEnvironment': ComponentAddress(short_name='VCM_environment.VCMEnvironment', address_type='environment', address=...-quit_0:04:59.999162) as Poison: Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/actorManager.py", line 164, in _handleOneMessage
+    actor_result = self.actorInst.receiveMessage(msg, envelope.sender)
+  File "/opt/conda/lib/python3.13/site-packages/thespian/initmsgs.py", line 97, in require_init
+    getattr(self, initdone)()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/tmp/mTree/mTree/microeconomic_system/environment.py", line 63, in invoke_prepare
+    self.num_agents = self.address_book.num_agents()
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/tmp/mTree/mTree/microeconomic_system/address_book.py", line 138, in num_agents
+    return len(self.agents.keys())
+               ^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'AddressBook' object has no attribute 'agents'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/actorManager.py", line 179, in _handleOneMessage
+    actor_result = self.actorInst.receiveMessage(copy.deepcopy(msg), envelope.sender)
+                                                 ~~~~~~~~~~~~~^^^^^
+  File "/opt/conda/lib/python3.13/copy.py", line 144, in deepcopy
+    y = copier(memo)
+  File "/opt/conda/lib/python3.13/site-packages/pydantic/main.py", line 978, in __deepcopy__
+    _object_setattr(m, '__dict__', deepcopy(self.__dict__, memo=memo))
+                                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/copy.py", line 137, in deepcopy
+    y = copier(x, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 222, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+                             ~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/copy.py", line 163, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/opt/conda/lib/python3.13/copy.py", line 260, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 137, in deepcopy
+    y = copier(x, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 222, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+                             ~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/copy.py", line 163, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/opt/conda/lib/python3.13/copy.py", line 260, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 137, in deepcopy
+    y = copier(x, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 222, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+                             ~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/copy.py", line 163, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/opt/conda/lib/python3.13/copy.py", line 260, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 137, in deepcopy
+    y = copier(x, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 222, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+                             ~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/copy.py", line 152, in deepcopy
+    rv = reductor(4)
+TypeError: cannot pickle '_thread.lock' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/systemCommon.py", line 173, in _send_intent_to_transport
+    self.transport.scheduleTransmit(self._addrManager, intent)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/transport/asyncTransportBase.py", line 213, in scheduleTransmit
+    transmitIntent.serMsg = self.serializer(transmitIntent)
+                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/transport/TCPTransport.py", line 568, in serializer
+    return toSendBuffer((self.myAddress, intent.message), serializer.dumps)
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/transport/streamBuffer.py", line 15, in <lambda>
+    toSendBuffer = lambda A, ser=pickle.dumps: (lambda AP: ('%d>'%len(AP)).encode('utf-8') + AP)(ser(A))
+                                                                                                 ~~~^^^
+TypeError: cannot pickle '_thread.lock' object
+
+2026-02-26 20:58:15.429686 p2123 Warn Actor VCM_environment.VCMEnvironment @ ActorAddr-(T|:33899) retryable exception on message addresses={'VCM_environment.VCMEnvironment': ComponentAddress(short_name='VCM_environment.VCMEnvironment', address_type='environment', address=<thespian.actors.ActorAddress object at 0x7515fb113350>, component_class='VCM_environment.VCMEnvironment', component_number=1), 'VCM_institution.VCMInstitution': ComponentAddress(short_name='VCM_institution.VCMInstitution', address_type='institution', address=<thespian.actors.ActorAddress object at 0x7515fb113290>, component_class='VCM_institution.VCMInstitution', component_number=1), 'VCM_agent.VCMAgent 1': ComponentAddress(short_name='VCM_agent.VCMAgent 1', address_type='agent', address=<thespian.actors.ActorAddress object at 0x7515fb1132f0>, component_class='VCM_agent.VCMAgent 1', component_number=1), 'VCM_agent.VCMAgent 2': ComponentAddress(short_name='VCM_agent.VCMAgent 2', address_type='agent', address=<thespian.actors.ActorAddress object at 0x7515fb1133b0>, component_class='VCM_agent.VCMAgent 2', component_number=1), 'VCM_agent.VCMAgent 3': ComponentAddress(short_name='VCM_agent.VCMAgent 3', address_type='agent', address=<thespian.actors.ActorAddress object at 0x7515fb1134d0>, component_class='VCM_agent.VCMAgent 3', component_number=1), 'VCM_agent.VCMAgent 4': ComponentAddress(short_name='VCM_agent.VCMAgent 4', address_type='agent', address=<thespian.actors.ActorAddress object at 0x7515fb113470>, component_class='VCM_agent.VCMAgent 4', component_number=1), 'VCM_agent.VCMAgent 5': ComponentAddress(short_name='VCM_agent.VCMAgent 5', address_type='agent', address=<thespian.actors.ActorAddress object at 0x7515fb113410>, component_class='VCM_agent.VCMAgent 5', component_number=1)} addresses_to_groups={} address_groups={} component=<Agent: VCMEnvironment @ ActorAddr-(T|:33899)>: Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/actorManager.py", line 164, in _handleOneMessage
+    actor_result = self.actorInst.receiveMessage(msg, envelope.sender)
+  File "/opt/conda/lib/python3.13/site-packages/thespian/initmsgs.py", line 97, in require_init
+    getattr(self, initdone)()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/tmp/mTree/mTree/microeconomic_system/environment.py", line 63, in invoke_prepare
+    self.num_agents = self.address_book.num_agents()
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/tmp/mTree/mTree/microeconomic_system/address_book.py", line 138, in num_agents
+    return len(self.agents.keys())
+               ^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'AddressBook' object has no attribute 'agents'
+
+2026-02-26 20:58:15.447403 p2123 ERR  Declaring transmit of TransportIntent(ActorAddr-(T|:36177)-pending-ExpiresIn_0:04:59.999156-<class 'thespian.actors.PoisonMessage'>-Poison<addresses={'VCM_environment.VCMEnvironment': ComponentAddress(short_name='VCM_environment.VCMEnvironment', address_type='environment', address=...-quit_0:04:59.999145) as Poison: Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/actorManager.py", line 164, in _handleOneMessage
+    actor_result = self.actorInst.receiveMessage(msg, envelope.sender)
+  File "/opt/conda/lib/python3.13/site-packages/thespian/initmsgs.py", line 97, in require_init
+    getattr(self, initdone)()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/tmp/mTree/mTree/microeconomic_system/environment.py", line 63, in invoke_prepare
+    self.num_agents = self.address_book.num_agents()
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/tmp/mTree/mTree/microeconomic_system/address_book.py", line 138, in num_agents
+    return len(self.agents.keys())
+               ^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'AddressBook' object has no attribute 'agents'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/actorManager.py", line 179, in _handleOneMessage
+    actor_result = self.actorInst.receiveMessage(copy.deepcopy(msg), envelope.sender)
+                                                 ~~~~~~~~~~~~~^^^^^
+  File "/opt/conda/lib/python3.13/copy.py", line 144, in deepcopy
+    y = copier(memo)
+  File "/opt/conda/lib/python3.13/site-packages/pydantic/main.py", line 978, in __deepcopy__
+    _object_setattr(m, '__dict__', deepcopy(self.__dict__, memo=memo))
+                                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/copy.py", line 137, in deepcopy
+    y = copier(x, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 222, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+                             ~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/copy.py", line 163, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/opt/conda/lib/python3.13/copy.py", line 260, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 137, in deepcopy
+    y = copier(x, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 222, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+                             ~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/copy.py", line 163, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/opt/conda/lib/python3.13/copy.py", line 260, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 137, in deepcopy
+    y = copier(x, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 222, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+                             ~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/copy.py", line 163, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/opt/conda/lib/python3.13/copy.py", line 260, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 137, in deepcopy
+    y = copier(x, memo)
+  File "/opt/conda/lib/python3.13/copy.py", line 222, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+                             ~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/copy.py", line 152, in deepcopy
+    rv = reductor(4)
+TypeError: cannot pickle '_thread.lock' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/systemCommon.py", line 173, in _send_intent_to_transport
+    self.transport.scheduleTransmit(self._addrManager, intent)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/transport/asyncTransportBase.py", line 213, in scheduleTransmit
+    transmitIntent.serMsg = self.serializer(transmitIntent)
+                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/transport/TCPTransport.py", line 568, in serializer
+    return toSendBuffer((self.myAddress, intent.message), serializer.dumps)
+  File "/opt/conda/lib/python3.13/site-packages/thespian/system/transport/streamBuffer.py", line 15, in <lambda>
+    toSendBuffer = lambda A, ser=pickle.dumps: (lambda AP: ('%d>'%len(AP)).encode('utf-8') + AP)(ser(A))
+                                                                                                 ~~~^^^
+TypeError: cannot pickle '_thread.lock' object
+
