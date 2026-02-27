@@ -1,0 +1,10 @@
+{
+    "simulation_id": "1",
+    "simulation_run_id": "basic_simulation-2026_02_27-19_15_00",
+    "run_number": 1,
+    "run_code": "7d0843",
+    "mes_directory": "/workspaces/mTree_developer_environment/VCM",
+    "mes_log_directory": "/workspaces/mTree_developer_environment/VCM/logs/basic_simulation-2026_02_27-19_15_00-R1",
+    "status": "Running",
+    "start_time": null
+}

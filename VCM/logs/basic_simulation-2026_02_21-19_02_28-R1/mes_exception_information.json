@@ -1,9 +1,0 @@
-{
-    "error_message": "MES CRASHING IN PREPARATION - EXCEPTION FOLLOWS \n\tError Type: <class 'AttributeError'>\n\tError: 'AddressBook' object has no attribute 'num_agents'\n\n\tTrace Output: \n\t  File \"/tmp/mTree/mTree/microeconomic_system/environment.py\", line 92, in invoke_prepare\n    self.prepare()\n    ~~~~~~~~~~~~^^\n\n\t  File \"VCM_environment.py\", line 29, in prepare\n\n\t  File \"/opt/conda/lib/python3.13/site-packages/pydantic/main.py\", line 1026, in __getattr__\n    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')\n\n",
-    "error_type": "<class 'AttributeError'>",
-    "error": "'AddressBook' object has no attribute 'num_agents'",
-    "filename": "/tmp/mTree/mTree/microeconomic_system/environment.py",
-    "lineno": 92,
-    "name": "invoke_prepare",
-    "line": "self.prepare()"
-}
