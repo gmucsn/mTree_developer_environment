@@ -1,0 +1,4 @@
+*.log
+*.LOG
+*.old
+.DS_Store
