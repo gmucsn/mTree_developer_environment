@@ -3,10 +3,12 @@ LABEL version="MTREE-DEV-CONTAINER-1"
 
 RUN apt-get update && apt-get install -y build-essential
 
-WORKDIR /tmp
+WORKDIR /workspaces
 
 RUN git clone -b version_2 https://github.com/gmucsn/mTree.git && \ 
-pip install -e /tmp/mTree
+pip install uv && \ 
+uv pip install --system -e /workspaces/mTree
+# pip install -e /tmp/mTree
 
 WORKDIR /dev
 # RUN /opt/conda/bin/pip install -e /workspaces/mTree
